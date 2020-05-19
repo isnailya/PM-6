@@ -1,0 +1,22 @@
+.box-creation {
+    display: flex;
+    justify-content: space-between;
+}
+
+.second-input-field {
+    height: 145px;
+}
+
+.box-second {
+    width: 741px;
+}
+
+.button-admin {
+    height: 52px;
+    margin-top: 45px;
+}
+
+.cancel-button {
+    background: #E1E1E1;
+    color: black;
+}

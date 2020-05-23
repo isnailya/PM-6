@@ -1,8 +1,14 @@
 const express = require('express');
+const bodyParser = require('body-parser');
+let fs = require('fs')
 const bcrypt = require('bcrypt');
  const cors = require('cors');
  const app = express();
 
+ app.use(bodyParser.urlencoded({
+    extended: true
+  }))
+  app.use(bodyParser.json());
 
 //const randomString = require('./randomString');
 // app.get('/user', function (req, res) {
@@ -11,15 +17,27 @@ const bcrypt = require('bcrypt');
 
 const port = process.env.PORT || 3005;
 
+
+// app.use(bodyParser.urlencoded({
+//     extended: true
+//   }))
+  
+
 //app.get('env')
 //app.use(express.bodyParser());
 //app.use(app.router);
  
 
-app.use(express.json());
+// app.use(express.json());
 app.use(cors());
 //app.use(express.bodyParser());
 //app.use(express.methodOverride());  
+// const bodyParser = require('body-parser');
+// app.use(bodyParser);
+
+
+
+
 
 const mysql = require('mysql');
 
@@ -62,14 +80,25 @@ app.get('/get', function (req, res) {
         });
 });
 
-app.post('/setcoin', cors(),  function (req, res) {
+app.post('/setcoin',cors(),  function (req, res) {
+   
+   
 
-    // // if (!checkToken(req)) {
-    // //     res.sendStatus(401);
-    // //   } 
-
-     //let sql = "INSERT INTO coins(name,descriptionLong, descriptionShort, country, material, quality, denomination, year, weight, price, imageAvers, imageRevers)VALUES (" + req.body + ",'descrip','descri','count','mal','quaty','denomina',1996,12.5,'er','w','wq')";
-     let sql = "INSERT INTO coins(name,descriptionLong, descriptionShort, country, material, quality, denomination, year, weight, price, imageAvers, imageRevers)VALUES ('Mammad','descrip','descri','count','mal','quaty','denomina',1996,12.5,'er','w','wq')";
+    
+    res.send({ status: 'SUCCESS' });
+    // if (!checkToken(req)) {
+    //     res.sendStatus(401);
+    //     console.log('bye');
+    //   } else {
+    //     //   let coin = req.body;
+    //       console.log('hi');
+    //   }
+    console.log('Input:: name='+req.body.name+' desLong=' + req.body.long + ' desShort='+req.body.short+' country='+req.body.country+' material='+req.body.material+' quality='+req.body.quality+' denom='+req.body.face+' year='+req.body.year+' weight='+req.body.weight+' price='+req.body.price+' imageAv='+req.body.observe+' imageRev='+req.body.revers,   req.body);
+     let sql = `INSERT INTO coins(name,descriptionLong, descriptionShort, country, material, quality, denomination, year, weight, price, imageAvers, imageRevers)VALUES ("${req.body.name}", "${req.body.long}","${req.body.short}","${req.body.country}","${req.body.material}","${req.body.quality}","${req.body.face}","${req.body.year}","${req.body.weight}","${req.body.price}","${req.body.observe}","${req.body.revers}" )`;
+    //  console.log(" );
+    // console.log(req.body.descriptionLong.toString();
+    //  console.log(JSON.parse(req.body).name);
+    //  let sql = "INSERT INTO coins(name,descriptionLong, descriptionShort, country, material, quality, denomination, year, weight, price, imageAvers, imageRevers)VALUES ('Mammad','descrip','descri','count','mal','quaty','denomina',1996,12.5,'er','w','wq')";
 
     
         connection.query(sql, function (err, result, fields) {
@@ -112,3 +141,5 @@ app.get('/delete', function (req, res) {
 });
 
 app.listen(3006);
+
+

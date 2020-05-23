@@ -38,6 +38,7 @@ class CoinCreation extends React.Component {
         let observe = this.textInputObserve.current.value;
         let revers = this.textInputRevers.current.value;
         // console.log('значение this:', metal);
+        let body = [];
         let coin = {
             name:name,
             face:face,
@@ -52,16 +53,61 @@ class CoinCreation extends React.Component {
             observe:observe,
             revers:revers
         };
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: name
-        };
-        fetch('http://localhost:3006/setcoin', requestOptions, {mode: 'cors'} )  //{mode: 'cors'}
-            .then(response => response.json())
-            .then(data => this.setState({ postId: data.id })).catch(() => console.log("Can’t access " + " response. Blocked by browser?"));
+        //body.push(coin);
+        const myCoin = JSON.stringify(coin);
+        console.log(myCoin);
+        const https = require('http')
+        const request = require('request')
+        request.post('http://localhost:3006/setcoin', { json: coin
+    }, function(error, response, body){
+            console.log(body);
+          });
+          
+        // const res = require('response')
+
+       
+       
+        //   const myCoin ="durdom";
+        // const options = {
+        // hostname: 'localhost',
+        // port: 3006,
+        // path: '/setcoin',
+        // method: 'POST',
+        // // body:,
+        // headers: {
+        //     'Content-Type': '/json',
+        //     'Content-Length': myCoin.length
+        // }
+        // //
+        // }
+
+        // const req = https.request(options, (res) => {
+        //     console.log(`statusCode: ${res.statusCode}`)
+          
+        // res.on('myCoin', (d) => {
+        //     process.stdout.write(d)
+        //   })
+        // })
+        
+        // req.on('error', (error)=> {
+        //     console.error(error);
+        //   });
+        //   req.write(myCoin)
+        //     req.end();
+
+        
+
+
+        // const requestOptions = {
+        //     method: 'POST',
+        //     headers: { 'Content-Type': 'application/json' },
+        //     body: coin
+        // };
+        // fetch('http://localhost:3006/setcoin', requestOptions, {mode: 'cors'} )  //{mode: 'cors'}
+        //     .then(response => response.json())
+        //     .then(data => this.setState({ postId: data.id })).catch(() => console.log("Can’t access " + " response. Blocked by browser?"));
        // const response = await fetch('https://localhost:3006/setcoin', requestOptions);
-      }
+       } 
 
   render() {
 
@@ -150,7 +196,7 @@ class CoinCreation extends React.Component {
             <form >
             <p className="style-title"> Weight </p>
             <label>
-                <input type="text" name="name" className="input-field" ref={this.textInputWeight}/>
+                <input type="number" step="0.01" name="name" className="input-field" ref={this.textInputWeight}/>
             </label>
             </form>  
 

@@ -20,11 +20,11 @@ class Login extends React.Component {
         <form className="login-form">
           <p className="style-title">Login</p>
           <label>
-            <input type="text" name="name" className="input-field" id="login" onChange={this.handleInput} value={this.state.login}/>
+            <input type="text" name="name" className="input-field" />
           </label>
           <p className="style-title">Password</p>
           <label>
-            <input type="password" name="name" className="input-field" id="pass" onChange={this.handleInput} value={this.state.pass}/>
+            <input type="password" name="name" className="input-field" />
           </label>
           
         </form>

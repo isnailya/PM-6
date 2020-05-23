@@ -12,10 +12,10 @@ class Filter extends React.Component {
             <div>
               <p className="style-title">Issuing country</p>
               <select className="input-field">
-                <option value="grapefruit">Грейпфрут</option>
-                <option value="lime">Лайм</option>
-                <option value="coconut">Кокос</option>
-                <option value="mango">Манго</option>
+                <option value=""></option>
+                <option value=""></option>
+                <option value=""></option>
+                <option value=""></option>
               </select>
             </div>
 
@@ -39,10 +39,10 @@ class Filter extends React.Component {
             <div>
               <p className="style-title">Metal</p>
               <select className="input-field">
-                <option value="grapefruit">Грейпфрут</option>
-                <option value="lime">Лайм</option>
-                <option value="coconut">Кокос</option>
-                <option value="mango">Манго</option>
+                <option value=""></option>
+                <option value=""></option>
+                <option value=""></option>
+                <option value=""></option>
               </select>
             </div>
 
@@ -65,10 +65,10 @@ class Filter extends React.Component {
             <div>
               <p className="style-title">Quality of the coin </p>
               <select className="input-field">
-                <option value="grapefruit">Грейпфрут</option>
-                <option value="lime">Лайм</option>
-                <option value="coconut">Кокос</option>
-                <option value="mango">Манго</option>
+                <option value=""></option>
+                <option value=""></option>
+                <option value=""></option>
+                <option value=""></option>
               </select>
             </div>
             

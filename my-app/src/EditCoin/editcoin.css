@@ -1,0 +1,26 @@
+.edit-coin-box {
+    width: 674px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.edit-coin-button {
+    width: 120px;
+    height: 48px;
+    background: #E5E5E5;
+    border: none;
+    color: black;
+}
+
+.add-coin {
+    width: 674px;
+    display: flex;
+    align-items: baseline;
+    margin-top: 20px;
+}
+
+.edit-img {
+    width: 120px;
+    height: 120px;
+}

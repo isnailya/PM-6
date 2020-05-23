@@ -1,0 +1,9 @@
+.list-coins-box {
+    display: flex;
+    justify-content: space-between  ;
+}
+
+.list-box {
+        width: 374px;
+        align-items: baseline;
+}

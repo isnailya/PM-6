@@ -1,9 +1,16 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import login from './login.css'
 
 
 class Login extends React.Component {
-
+  
+  
+// handleSign= (evt)=> {
+//   console.log("click");
+//   const { history } = this.props;
+//   history.push('/editcoin/');
+// }
 
   render() {
     return (
@@ -13,16 +20,16 @@ class Login extends React.Component {
         <form className="login-form">
           <p className="style-title">Login</p>
           <label>
-            <input type="text" name="name" className="input-field"/>
+            <input type="text" name="name" className="input-field" id="login" onChange={this.handleInput} value={this.state.login}/>
           </label>
           <p className="style-title">Password</p>
           <label>
-            <input type="text" name="name" className="input-field"/>
+            <input type="password" name="name" className="input-field" id="pass" onChange={this.handleInput} value={this.state.pass}/>
           </label>
           
         </form>
         <div className="box-sign-button">
-            <button className="search sign-button">Sign in</button>
+            <button className="search sign-button" type="submit">Sign in</button>
         </div>
     </div>
        
@@ -31,4 +38,4 @@ class Login extends React.Component {
   }
 
 }
-export default Login;
+export default withRouter(Login);
